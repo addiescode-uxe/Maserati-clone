@@ -1,4 +1,4 @@
-import MainContainer from '../containers/MainContainer';
+import MainContainer from '../containers/Main';
 import { PathItem } from '../models/route.model';
 
 export const appRoutes: PathItem[] = [
