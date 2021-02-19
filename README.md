@@ -1,7 +1,7 @@
 # Maserati Clone Project
 
 [기존 React 클론 프로젝트](https://github.com/addiescode-uxe/Maserati-frontend)를
-Typescript & React hooks로 전환, Redux-toolkit을 이용해 리팩토링하는 프로젝트입니다.
+Typescript & React hooks로 전환하고, Redux-toolkit을 이용해 전역 State 관리를 목적으로 리팩토링하는 프로젝트입니다.
 
 ## 이슈 관리 
 
