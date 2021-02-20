@@ -31,7 +31,7 @@ export const forSafetyOptions = {
 };
 
 export interface ToolOptionTypes {
-  exterior?: keyof typeof exteriorToolOptions;
-  interior: Partial<keyof typeof interiorToolOptions>;
-  safety?: keyof typeof forSafetyOptions;
+  exterior?: Array<keyof typeof exteriorToolOptions>;
+  interior: Array<keyof typeof interiorToolOptions>;
+  safety?: Array<keyof typeof forSafetyOptions>;
 }

@@ -10,8 +10,8 @@ export const BASE_URL = BASE_URL_CONFIG;
 
 export const request = <T>(
   config: AxiosRequestConfig,
-  onSuccess: (value: AxiosResponse<T>) => void,
-  onError: (reason: any) => void
+  onSuccess?: (value: AxiosResponse<T>) => void,
+  onError?: (reason: any) => void
 ) => {
   const client = apiInstance;
   return client(config).then(onSuccess).catch(onError);

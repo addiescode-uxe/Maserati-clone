@@ -18,7 +18,7 @@ export interface BreakCaliperOptionTypes {
 export interface WheelOptionTypes {
   wheelOption:
     | "19'Poseidon"
-    | "19'proteo"
+    | "19'Proteo"
     | "20'Urano Nero (Diamond)"
     | "20'Urano (Diamond)"
     | "20'Urano Nero"
@@ -34,6 +34,6 @@ export interface WheelOptionTypes {
 
 export interface CarCustomExteriorOptionTypes {
   exteriorColor: keyof typeof ExteriorCarColorTypes;
-  breakCaliperOptions: Pick<BreakCaliperOptionTypes, 'breakCaliperOptions'>;
-  wheelOptions: Pick<WheelOptionTypes, 'wheelOption'>;
+  breakCaliperOptions: BreakCaliperOptionTypes['breakCaliperOptions'];
+  wheelOptions: WheelOptionTypes['wheelOption'];
 }
