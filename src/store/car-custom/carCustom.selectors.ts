@@ -3,27 +3,27 @@ import { createSelector } from '@reduxjs/toolkit';
 
 const selectCarCustomState = (state: RootState) => state.customCar;
 
-export const SelectExteriorOptionInfo = createSelector(
+export const selectExteriorOptionInfo = createSelector(
   selectCarCustomState,
   ({ exterior }) => exterior
 );
 
-export const SelectInteriorOptionInfo = createSelector(
+export const selectInteriorOptionInfo = createSelector(
   selectCarCustomState,
   ({ interior }) => interior
 );
 
-export const SelectToolOptionInfo = createSelector(
+export const selectToolOptionInfo = createSelector(
   selectCarCustomState,
   ({ toolOptions }) => toolOptions
 );
 
-export const SelectTokenInfo = createSelector(
+export const selectTokenInfo = createSelector(
   selectCarCustomState,
   ({ token }) => token
 );
 
-export const SelectIsTokenGenerated = createSelector(
+export const selectIsTokenGenerated = createSelector(
   selectCarCustomState,
   ({ tokenGenerated }) => tokenGenerated
 );
