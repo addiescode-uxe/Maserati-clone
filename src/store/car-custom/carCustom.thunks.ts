@@ -13,7 +13,9 @@ export const loadCustomCarInfo = createAsyncThunk(
     const apiResponse = await ApiManager.request({
       method: 'GET',
       url: 'http://localhost:3000/data/loadCar.json',
-    });
+    })
+      .then(response => response)
+      .catch(error => error);
     return apiResponse;
   }
 );

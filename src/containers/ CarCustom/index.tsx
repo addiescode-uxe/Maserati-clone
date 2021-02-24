@@ -17,7 +17,9 @@ const CarCustomContainer: React.FC<CarCustomContainerProps> = () => {
 
   useEffect(() => {
     // loading state check
-    !isTokenGenerated && dispatch(loadCustomCarInfo);
+    if (!isTokenGenerated) {
+      dispatch(loadCustomCarInfo());
+    }
   }, []);
 
   return <CarCustomWrap></CarCustomWrap>;
