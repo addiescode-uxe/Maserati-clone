@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as ApiManager from '../../factory/apiManager';
+import { interiorSeatColorTypes } from '../../models/interiorOptions';
+import { getOtherOptionsBySeatSelection } from '../../utils/getOtherOptionsBySeatSelection';
 
 /**
  * 최초 loading 되는 car info / 저장된 car info get
@@ -32,6 +34,17 @@ export const fetchExteriorCarInfo = createAsyncThunk(
       url: 'http://localhost:3000/data/carColorData.json',
     });
     return apiResponse;
+  }
+);
+
+/**
+ * 선택한 interior seat color -> 선택 가능한 대시보드, 카펫, 스티어링 휠, 헤드라이닝, trim option get
+ */
+
+export const fetchInteriorSeatColor = createAsyncThunk(
+  'customCar/interiorSeat',
+  async (seatColor: keyof typeof interiorSeatColorTypes) => {
+    return getOtherOptionsBySeatSelection(seatColor);
   }
 );
 

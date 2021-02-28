@@ -3,6 +3,11 @@ import { createSelector } from '@reduxjs/toolkit';
 
 const selectCarCustomState = (state: RootState) => state.customCar;
 
+export const selectCurrentCarCustomOptions = createSelector(
+  selectCarCustomState,
+  state => state
+);
+
 export const selectExteriorOptionInfo = createSelector(
   selectCarCustomState,
   ({ exterior }) => exterior
