@@ -1,6 +1,10 @@
 import { CarCustomTypes } from '../../models/carCustomOptions.models';
 import { createSlice, SerializedError } from '@reduxjs/toolkit';
-import { fetchExteriorCarInfo, loadCustomCarInfo } from './carCustom.thunks';
+import {
+  fetchExteriorCarInfo,
+  loadCustomCarInfo,
+  fetchInteriorSeatColor,
+} from './carCustom.thunks';
 
 export interface CustomCarState extends CarCustomTypes {
   tokenGenerated: boolean;
@@ -41,6 +45,9 @@ export const customCarSlice = createSlice({
     addInteriorOptions(state, action) {
       state.interior = action.payload;
     },
+    addInteriorSeatOptions(state, action) {
+      state.interior.seat = action.payload;
+    },
     addToolOptions(state, action) {
       state.toolOptions = action.payload;
     },
@@ -75,6 +82,15 @@ export const customCarSlice = createSlice({
         state.pending = false;
       })
       .addCase(fetchExteriorCarInfo.rejected, (state, action) => {
+        state.error = action.error;
+      })
+      .addCase(fetchInteriorSeatColor.fulfilled, state => {
+        state.pending = false;
+      })
+      .addCase(fetchInteriorSeatColor.pending, state => {
+        state.pending = true;
+      })
+      .addCase(fetchInteriorSeatColor.rejected, (state, action) => {
         state.error = action.error;
       });
   },

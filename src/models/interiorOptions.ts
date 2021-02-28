@@ -2,12 +2,7 @@ export const interiorSeatColorTypes = {
   NERO: 'Nero',
   CUOIO: 'Cuoio',
   SABBIA: 'Sabbia',
-  MARRONE: 'Marrone',
   BLU: 'Blu',
-  ROSSO_ROSSO: 'Rosso / Rosso',
-  NERO_GRIGIO: 'Nero /Grigio',
-  NERO_ROSSO: 'Nero / Rosso',
-  ROSSO_NERO: 'Rosso / Nero',
 } as const;
 
 export const carpetColorTypes = {
