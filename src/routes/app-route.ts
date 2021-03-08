@@ -1,6 +1,6 @@
 import MainContainer from '../containers/Main';
 import { PathItem } from '../models/route.model';
-import CarCustomContainer from '../containers/ CarCustom/index';
+import CarCustomContainer from '../containers/CarCustom/index';
 
 export const appRoutes: PathItem[] = [
   {
