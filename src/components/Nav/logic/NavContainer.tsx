@@ -1,10 +1,6 @@
 import React from 'react';
+import { ModelData } from '../model/NavModel';
 import NavView from '../view/NavView';
-
-interface modelData {
-  name: string;
-  imgUrl: string;
-}
 
 const NavContainer: React.FC = () => {
   return <NavView modelData={modelData} />;
@@ -12,7 +8,7 @@ const NavContainer: React.FC = () => {
 
 export default NavContainer;
 
-const modelData: modelData[] = [
+const modelData: ModelData[] = [
   {
     name: 'model',
     imgUrl:

@@ -1,21 +1,21 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { ModelData } from '../model/NavModel';
 
 interface props {
-  modelData: any[];
+  modelData: ModelData[];
 }
 
 const NavView: React.FC<props> = props => {
-  const [subMenuShow, setSubMenuShow] = useState<string>('model');
+  const [subMenuShow, setSubMenuShow] = useState<string>('');
   const { modelData } = props;
 
-  console.log(modelData);
   return (
     <>
       <Wrapper>
         {/* header logo */}
-        <Logo>
+        <Logo onMouseEnter={() => setSubMenuShow('')}>
           <Link to="/home">
             <img
               src="https://www.maserati.com/content/dam/maserati/international/logo/maserati_logo_original.svg"
@@ -27,45 +27,38 @@ const NavView: React.FC<props> = props => {
         {/* header menu */}
         <NavLists>
           {/* 모델 */}
-          <li
-            onMouseEnter={() => setSubMenuShow(prev => 'model')}
-            onMouseLeave={() => setSubMenuShow(prev => '')}
-          >
+          <li onMouseEnter={() => setSubMenuShow('model')}>
             <span>모델</span>
           </li>
 
           {/* 쇼핑 */}
-          <li
-            onMouseEnter={() => setSubMenuShow(prev => 'shopping')}
-            onMouseLeave={() => setSubMenuShow(prev => '')}
-          >
+          <li onMouseEnter={() => setSubMenuShow('shopping')}>
             <span>쇼핑</span>
           </li>
 
+          {/* 프로모션 */}
+          <li onMouseEnter={() => setSubMenuShow('')}>
+            <span>프로모션</span>
+          </li>
+
           {/* 서비스 & 에프터 세일즈 */}
-          <li
-            onMouseEnter={() => setSubMenuShow(prev => 'service')}
-            onMouseLeave={() => setSubMenuShow(prev => '')}
-          >
-            <span>모델</span>
+          <li onMouseEnter={() => setSubMenuShow('service')}>
+            <span>서비스 & 에프터 세일즈</span>
           </li>
 
           {/* 뉴스 */}
           <li>
-            <span>뉴스</span>
+            <span onMouseEnter={() => setSubMenuShow('')}>뉴스</span>
           </li>
 
           {/* 브랜드 */}
-          <li
-            onMouseEnter={() => setSubMenuShow(prev => 'brand')}
-            onMouseLeave={() => setSubMenuShow(prev => '')}
-          >
+          <li onMouseEnter={() => setSubMenuShow('brand')}>
             <span>브랜드</span>
           </li>
 
           {/* 인증 중고차 */}
           <li>
-            <span>인증 중고차</span>
+            <span onMouseEnter={() => setSubMenuShow('')}>인증 중고차</span>
           </li>
         </NavLists>
       </Wrapper>
@@ -73,7 +66,7 @@ const NavView: React.FC<props> = props => {
       {/* sub menu */}
       {subMenuShow === 'model' && (
         <SubMenuWrapper>
-          <SubMenuContainer>
+          <SubMenuModelContainer onMouseLeave={() => setSubMenuShow('')}>
             {modelData.map(item => (
               <li>
                 <ModelTitle>{item.name}</ModelTitle>
@@ -86,7 +79,92 @@ const NavView: React.FC<props> = props => {
                 </MycarBtn>
               </li>
             ))}
-          </SubMenuContainer>
+          </SubMenuModelContainer>
+        </SubMenuWrapper>
+      )}
+      {subMenuShow === 'shopping' && (
+        <SubMenuWrapper>
+          <SubMenuShoppingContainer onMouseLeave={() => setSubMenuShow('')}>
+            <h3>구매</h3>
+            <p>
+              <Link to="">딜러찾기</Link>
+            </p>
+            <p>
+              <Link to="">시승신청</Link>
+            </p>
+          </SubMenuShoppingContainer>
+        </SubMenuWrapper>
+      )}
+      {subMenuShow === 'service' && (
+        <SubMenuWrapper>
+          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <SubMenuServiceContainer onMouseLeave={() => setSubMenuShow('')}>
+              <h3>구매</h3>
+              <p>
+                <Link to="">사전 구매 유지 보수 프로그램</Link>
+              </p>
+              <p>
+                <Link to="">연장 보증</Link>
+              </p>
+              <p>
+                <Link to="">마세라티 고객지원</Link>
+              </p>
+            </SubMenuServiceContainer>
+            <SubMenuServiceContainer onMouseLeave={() => setSubMenuShow('')}>
+              <h3>구매</h3>
+              <p>
+                <Link to="">사전 구매 유지 보수 프로그램</Link>
+              </p>
+              <p>
+                <Link to="">연장 보증</Link>
+              </p>
+              <p>
+                <Link to="">마세라티 고객지원</Link>
+              </p>
+            </SubMenuServiceContainer>
+          </div>
+        </SubMenuWrapper>
+      )}
+      {subMenuShow === 'brand' && (
+        <SubMenuWrapper>
+          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <SubMenuServiceContainer onMouseLeave={() => setSubMenuShow('')}>
+              <h3>구매</h3>
+              <p>
+                <Link to="">사전 구매 유지 보수 프로그램</Link>
+              </p>
+              <p>
+                <Link to="">연장 보증</Link>
+              </p>
+              <p>
+                <Link to="">마세라티 고객지원</Link>
+              </p>
+            </SubMenuServiceContainer>
+            <SubMenuServiceContainer onMouseLeave={() => setSubMenuShow('')}>
+              <h3>구매</h3>
+              <p>
+                <Link to="">사전 구매 유지 보수 프로그램</Link>
+              </p>
+              <p>
+                <Link to="">연장 보증</Link>
+              </p>
+              <p>
+                <Link to="">마세라티 고객지원</Link>
+              </p>
+            </SubMenuServiceContainer>
+            <SubMenuServiceContainer onMouseLeave={() => setSubMenuShow('')}>
+              <h3>구매</h3>
+              <p>
+                <Link to="">사전 구매 유지 보수 프로그램3</Link>
+              </p>
+              <p>
+                <Link to="">연장 보증3</Link>
+              </p>
+              <p>
+                <Link to="">마세라티 고객지원3</Link>
+              </p>
+            </SubMenuServiceContainer>
+          </div>
         </SubMenuWrapper>
       )}
     </>
@@ -129,6 +207,7 @@ const NavLists = styled.ul`
   }
 `;
 
+/** 서브메뉴 area **/
 const SubMenuWrapper = styled.div`
   position: absolute;
   top: 85px;
@@ -136,7 +215,8 @@ const SubMenuWrapper = styled.div`
   right: 0;
 `;
 
-const SubMenuContainer = styled.ul`
+/** 서브 - 모델 area **/
+const SubMenuModelContainer = styled.ul`
   display: flex;
   justify-content: center;
   text-align: center;
@@ -185,4 +265,38 @@ const MycarBtn = styled.div`
   letter-spacing: 0.04em;
   line-height: 2;
   white-space: nowrap;
+`;
+
+/** 서브 - 쇼핑 area **/
+const SubMenuShoppingContainer = styled.div`
+  text-align: center;
+  h3 {
+    font-size: 26px;
+    color: #0c2340;
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 16px;
+    color: #333;
+    padding: 6px 0;
+    display: block;
+  }
+`;
+
+/** 서브 - 서비스 area **/
+const SubMenuServiceContainer = styled.div`
+  h3 {
+    font-size: 26px;
+    color: #0c2340;
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 16px;
+    color: #333;
+    padding: 6px 0;
+    display: block;
+    text-align: left;
+  }
 `;

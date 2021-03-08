@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
-import NavContainer from '../components/Nav/index';
+import NavContainer from '../components/Nav';
 import { routes } from './index';
 
 const RouteContainer: React.FC = () => {
