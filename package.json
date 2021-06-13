@@ -26,14 +26,14 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start:develop": "-e .env.develop && craco start",
-    "start:product": "-e .env.product && craco start",
-    "build:develop": "-e .env.develop && craco build",
-    "build:product": "-e .env.product && craco build",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
+    "start:develop": "-e .env.develop && react-scripts start",
+    "start:product": "-e .env.product && react-scripts start",
+    "build:develop": "-e .env.develop && react-scripts build",
+    "build:product": "-e .env.product && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
