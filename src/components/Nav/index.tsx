@@ -1,3 +1,3 @@
-import NavContainer from "./logic/NavContainer";
+import NavContainer from './logic/NavContainer';
 
-export default () => <NavContainer />
+export default NavContainer;
